@@ -72,21 +72,56 @@ class AutoResponseBot(commands.Bot):
             POKEMON_CHANNEL = 1454578821578883216
 
             # Pedimos respuesta al handler
-            response = await self.response_handler.check_triggers(content)
+             response = await self.response_handler.check_triggers(content)
 
             # Caso 1: en los canales generales normales
             if message.channel.id in GENERAL_CHANNELS:
-                if "bloxfruits" in content or "blox" in content or "pvp" in content:
-                    await message.channel.send(f"👋 Ese tema va en el canal: <#{〚🍎〛𝐁𝐥𝐨𝐱-𝐟𝐫𝐮𝐢𝐭𝐬〚🍎〛}>")
-                elif "pokemon" in content or "pokemons" in content or "pokémon" in content or "pokémons" in content:
-                    await message.channel.send(f"⚔️ Para hablar de pokemons, usa <#{〚🐦‍🔥〛𝐏𝐨𝐤𝐞𝐦𝐨𝐧𝐬〚🐦‍🔥〛}>.")
+                if "crosstrade" in content or "brainrot" in content or "steal a brainrot" in content or "roba un" in content:
+                    await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
+                elif "fruta" in content or "bloxfruits" in content or "pvp" in content:
+                    await message.channel.send(f"👋 Ese tema va en el canal: <#{BLOX_GENERAL}>")
+                elif "raid" in content or "trial" in content or "v4" in content:
+                    await message.channel.send(f"⚔️ Para organizar raids o trials usa <#{RAIDS_CHANNEL}>.")
                 elif "trade" in content or "que me das" in content or "que das" in content or "que dan" in content or "que me dan" in content:
-                    await message.channel.send(f"💱 Para intercambios usa <#{〚📦〛𝗧𝗿𝗮𝗱𝗲𝘀}>.")
-                
+                    await message.channel.send(f"💱 Para intercambios usa <#{TRADE_CHANNEL}>.")
+                elif "marino" in content or "barco" in content or "levi" in content or "sb" in content or "bestias marinas" in content or "terror" in content or "terrorshark" in content or "sea beast" in content or "bestia marina" in content or "prehistorica" in content or "mirage" in content or "isla espejo" in content or "isla kit" in content or "kit island" in content or "kitsune island" in content or "kitsune shrine" in content or "kit shrine" in content or "prehistórica" in content:
+                    await message.channel.send(f"🌊 Para eventos marinos usa <#{SEA_EVENTS_CHANNEL}>.")
+
             # Caso 2: canal general de blox
-           
+            elif message.channel.id == BLOX_GENERAL:
+                if "cuentas" in content or "crosstrade" in content or "cuenta" in content:
+                    await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
+                elif "raid" in content or "trial" in content or "v4" in content:
+                    await message.channel.send(f"⚔️ Para organizar raids o trials usa <#{RAIDS_CHANNEL}>.")
+                elif "trade" in content or "que me das" in content or "que das" in content:
+                    await message.channel.send(f"💱 Para intercambios de objetos usa <#{TRADE_CHANNEL}>.")
+                elif "marino" in content or "barco" in content or "levi" in content or "sb" in content or "bestias marinas" in content or "terror" in content or "terrorshark" in content or "sea beast" in content or "bestia marina" in content or "prehistorica" in content or "mirage" in content or "isla espejo" in content or "isla kit" in content or "kit island" in content or "kitsune island" in content or "kitsune shrine" in content or "kit shrine" in content or "prehistórica" in content:
+                    await message.channel.send(f"🌊 Para eventos marinos usa <#{SEA_EVENTS_CHANNEL}>.")
+
             # Caso 3: en los canales específicos de blox
-       
+            elif message.channel.id == TRADE_CHANNEL:
+                if "cuentas" in content or "crosstrade" in content or "cuenta" in content:
+                    await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
+                elif "raid" in content or "trial" in content or "v4" in content:
+                    await message.channel.send(f"⚔️ Para organizar raids o trials usa <#{RAIDS_CHANNEL}>.")
+                elif "marino" in content:
+                    await message.channel.send(f"🌊 Para eventos marinos usa <#{SEA_EVENTS_CHANNEL}>.")
+             
+            elif message.channel.id == RAIDS_CHANNEL:
+                if "cuentas" in content or "crosstrade" in content or "cuenta" in content:
+                    await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
+                elif "trade" in content:
+                    await message.channel.send(f"💱 Para intercambios de objetos usa <#{TRADE_CHANNEL}>.")
+                elif "marino" in content:
+                    await message.channel.send(f"🌊 Para eventos marinos usa <#{SEA_EVENTS_CHANNEL}>.")
+
+            elif message.channel.id == SEA_EVENTS_CHANNEL:
+                if "cuentas" in content or "crosstrade" in content or "cuenta" in content:
+                    await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
+                elif "trade" in content:
+                    await message.channel.send(f"💱 Para intercambios de objetos usa <#{TRADE_CHANNEL}>.")
+                elif "raid" in content:
+                    await message.channel.send(f"⚔️ Para organizar raids o trials usa <#{RAIDS_CHANNEL}>.")
 
             if response:
                 await message.channel.send(response)
