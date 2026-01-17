@@ -76,10 +76,10 @@ class AutoResponseBot(commands.Bot):
 
             # Caso 1: en los canales generales normales
             if message.channel.id in GENERAL_CHANNELS:
-                if "crosstrade" in content or "brainrot" in content or "steal a brainrot" in content or "roba un" in content:
+                if "crosstrade" in content:
                     await message.channel.send("🚫 No está permitido el crosstrade ni el comercio de cuentas.")
-                elif "fruta" in content or "bloxfruits" in content or "pvp" in content:
-                    await message.channel.send(f"👋 Ese tema va en el canal: <#{BLOX_GENERAL}>")
+                elif "blox" in content or "bloxfruits" in content or "pvp" in content:
+                    await message.channel.send(f"👋 Ese tema va en el canal: <#1456938316984487978>")
                 elif "raid" in content or "trial" in content or "v4" in content:
                     await message.channel.send(f"⚔️ Para organizar raids o trials usa <#{RAIDS_CHANNEL}>.")
                 elif "trade" in content or "que me das" in content or "que das" in content or "que dan" in content or "que me dan" in content:
