@@ -76,7 +76,7 @@ class AutoResponseBot(commands.Bot):
 
             # Caso 1: en los canales generales normales
             if message.channel.id in GENERAL_CHANNELS:
-                if "bloxfruits" in content or "pvp" in content:
+                if "bloxfruits" in content or "blox" in content or "pvp" in content:
                     await message.channel.send(f"👋 Ese tema va en el canal: <#{〚🍎〛𝐁𝐥𝐨𝐱-𝐟𝐫𝐮𝐢𝐭𝐬〚🍎〛}>")
                 elif "pokemon" in content or "pokemons" in content or "pokémon" in content or "pokémons" in content:
                     await message.channel.send(f"⚔️ Para hablar de pokemons, usa <#{〚🐦‍🔥〛𝐏𝐨𝐤𝐞𝐦𝐨𝐧𝐬〚🐦‍🔥〛}>.")
